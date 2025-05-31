@@ -1,0 +1,35 @@
+@if (book) {
+    <div class="book-card">
+        <div class="avatar-name">
+          <!-- Специально создал pipe : img-url.pipe.ts; Надо как то сделать простановку картинок, возможно, они будут хранится на сервере поэтому надо будет указать адрес html:\.... путь до картинки на сервере-->
+            <img
+              src = "/assets/imgs/book.png"
+              [alt]="book.title"
+              class="book-card__avatar"
+            >
+            <div class="book-card__name">
+                <strong class="h6">{{ book.title }}</strong>
+                <span class="subtitle">{{ book.author.shortName }}</span>
+            </div>
+        </div>
+        <div class="book-card__description"> {{ book.annotation }}</div>
+        <div class="book-card__tags">
+            @for(genre of book.genres; track genre) {
+              <div class="genre-tag">{{ genre }}</div>
+            }
+        </div>
+        <div class="book-card__action-btns">
+            <div class="btn">
+              <!--  Книгу подгружать с сервера, так же как и картинку    -->
+              <a target="_self"
+                 [href]="'http://localhost:8080/LibraryRestService/Library/books/' + book.resource"
+                 [download] = getDownloadFileName()>
+                Получить книгу из библиотеки
+              </a>
+            </div>
+        </div>
+    </div>
+}
+@else {
+    <h1>Данные не получены</h1>
+}

@@ -1,0 +1,8 @@
+{
+    "/Library/*":{
+        "target":"http://localhost:8080/LibraryRestService",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}
