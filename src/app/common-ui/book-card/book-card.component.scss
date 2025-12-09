@@ -3,7 +3,10 @@
     padding: 32px 24px;
     display: grid;
     grid-template-columns: repeat(2, 1fr) 250px 1fr;
+    border-radius: 6px;
+    background-color: #b8bdb9;
     grid-gap: 32px;
+    margin: 10px 20px;
 }
 
 .avatar-name {
@@ -22,12 +25,88 @@
 .book-card__name {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
+    justify-content: center;
+    .h6 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #212529;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        font-size: 1.3rem;
+        color: #555;
+        font-weight: 400;
+        opacity: 0.85;
+    }
+}
+
+.book-card__description {
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #242525;
+    max-width: 75ch; 
 }
 
 .book-card__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  height: min-content;
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 8px;
+    height: min-content;
+    padding-top: 8px;
+
+    .genre-tag {
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        padding: 6px 14px; 
+        border: 1px solid #ced4da;
+        border-radius: 20px;
+        background-color: #f8f9fa;
+        color: #495057;
+        cursor: default;
+        transition: background-color 0.2s;
+        line-height: 1; 
+        &:hover {
+            background-color: #e9ecef;
+        }
+    }
+}
+
+.book-card__action-btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #36e94e;
+    color: var(--color-text-button);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: var(--shadow-accent);
+    border: none;
+
+    &:hover {
+        background-color: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 15px rgba(255, 102, 0, 0.4);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(255, 102, 0, 0.4);
+    }
 }
